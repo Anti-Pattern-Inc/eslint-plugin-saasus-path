@@ -1,0 +1,27 @@
+{
+  "name": "eslint-plugin-saasus-path",
+  "version": "1.0.0",
+  "description": "ESLint plugin for SaaSus path naming convention",
+  "main": "lib/index.js",
+  "repository": "git@github.com:Anti-Pattern-Inc/eslint-plugin-saasus-path.git",
+  "author": "tamanyan <tamanyan@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "babel-jest": "^28.1.0",
+    "eslint": "^8.15.0",
+    "jest": "^28.1.0"
+  }
+}
