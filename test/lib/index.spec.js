@@ -1,25 +1,34 @@
-import { RuleTester } from 'eslint';
-import * as saasusPath from '../../lib';
+import { jest } from '@jest/globals';
+import { RuleTester } from 'eslint'
+import * as rule from '../../lib'
 
-const tester = new RuleTester();
-const testRule = (tests) => () => tester.run('match', match, tests);
+jest.mock('../../lib/utils', () => {
+  return {
+    isFileExists: (path) => {
+      return path.includes('page.tsx')
+    },
+  }
+})
 
-test('single regex', testRule({
+const tester = new RuleTester({ parserOptions: { ecmaVersion: 2015 } })
+const testCode = "var foo = 'bar';"
+
+tester.run("saasus-path", rule, {
   valid: [
     {
-      code,
-      filename: '/foo/bar/test.txt',
-      options: [/^test(?:\..*)?$/],
+      code: testCode,
+      filename: 'src/domains/page/Login/index.tsx',
+      options: [2, { rootDir: 'src' }],
     },
   ],
   invalid: [
     {
-      code,
-      filename: '/foo/bar/test_.txt',
-      options: [/^test(?:\..*)?$/],
+      code: testCode,
+      filename: 'src/domains/page-test/Login/index.tsx',
+      options: [2, { rootDir: 'src' }],
       errors: [
-        { message: "Filename 'test_.txt' does not match /^test(?:\\..*)?$/.", column: 1, line: 1 },
-      ],
+        { message: "'src/domains/page-test/Login/index.tsx' is invalid." }
+      ]
     },
   ],
-}));
+})
