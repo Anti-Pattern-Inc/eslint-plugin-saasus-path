@@ -1,6 +1,6 @@
 {
   "name": "@anti-pattern-inc/eslint-plugin-saasus-path",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "ESLint plugin for SaaSus path naming convention",
   "main": "index.js",
   "repository": "git@github.com:Anti-Pattern-Inc/eslint-plugin-saasus-path.git",

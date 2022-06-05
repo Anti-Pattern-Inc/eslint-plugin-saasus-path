@@ -4,7 +4,7 @@ import * as rule from '../../lib'
 
 jest.mock('../../lib/utils', () => {
   return {
-    isFileExists: (path) => {
+    isPathExists: (path) => {
       return path.includes('page.tsx')
     },
   }
@@ -27,7 +27,7 @@ tester.run("saasus-path", rule, {
       filename: 'src/domains/page-test/Login/index.tsx',
       options: [2, { rootDir: 'src' }],
       errors: [
-        { message: "'src/domains/page-test/Login/index.tsx' is invalid." }
+        { message: "The directorty name does not match saasus naming convention. Ex. src/domains/[pageName]" }
       ]
     },
   ],
