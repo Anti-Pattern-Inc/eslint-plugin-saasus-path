@@ -18,19 +18,19 @@ tester.run("saasus-path", rule, {
     {
       code: testCode,
       filename: 'src/domains/page/Login/index.tsx',
-      options: [2, { rootDir: 'src' }],
+      options: [{ rootDir: 'src' }],
     },
     {
       code: testCode,
       filename: 'src/domains/page-test/Login/index.tsx',
-      options: [2, { rootDir: 'src', ignorePaths: [/page-test/] }],
+      options: [{ rootDir: 'src', ignorePaths: [/page-test/] }],
     },
   ],
   invalid: [
     {
       code: testCode,
       filename: 'src/domains/page-test/Login/index.tsx',
-      options: [2, { rootDir: 'src' }],
+      options: [{ rootDir: 'src' }],
       errors: [
         { message: "The directorty name does not match saasus naming convention. Ex. src/domains/[pageName]" }
       ]
