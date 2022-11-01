@@ -23,7 +23,12 @@ tester.run("saasus-path", rule, {
     {
       code: testCode,
       filename: 'src/domains/page-test/Login/index.tsx',
-      options: [{ rootDir: 'src', ignorePaths: [/page-test/] }],
+      options: [{ rootDir: 'src', ignoreDomainNames: ["page-test"] }],
+    },
+    {
+      code: testCode,
+      filename: 'src/domains/Login/index.tsx',
+      options: [{ rootDir: 'src', ignoreDomainNames: ["Log.*"] }],
     },
   ],
   invalid: [
