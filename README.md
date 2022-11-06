@@ -23,3 +23,18 @@ yarn add --dev @anti-pattern-inc/eslint-plugin-saasus-path
   }
 }
 ```
+
+もしとあるドメインをページ（pages）への検査対象から除外したい場合は`ignoreDomainNames`に追加する。
+
+```json
+{
+  "plugins": [
+    "@anti-pattern-inc/saasus-path"
+  ],
+  "rules": {
+    "@anti-pattern-inc/saasus-path/saasus-path": [2, {
+      "rootDir": "src",  "ignoreDomainNames": ["apikeys"]
+    }],
+  }
+}
+```
